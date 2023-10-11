@@ -15,7 +15,7 @@ export default defineConfig({
   build: {
     target: "esnext",
     rollupOptions: {
-      input: resolve(__dirname, "src/App.jsx"),
+      input: resolve(__dirname, "src/Root.jsx"),
       preserveEntrySignatures: "exports-only",
       external: ["solid-js"],
       output: {
