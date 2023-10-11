@@ -2,12 +2,13 @@ import { A } from "@solidjs/router";
 import styles from "./App.module.css";
 
 function App() {
+  console.log("Rendering App")
   return (
     <section className={styles["app-c"]}>
-      <h1>App c</h1>
-      <div style={{display: "flex", gap: "8px"}}>
-      <A href="/about">About</A>
-      <A href="/contact">Contact</A>
+      <h1>App C?</h1>
+      <div style={{display: "flex", gap: "16px"}}>
+      <A href="/about">About Solid</A>
+      <A href="/contact">Contact me</A>
 
 </div>
 

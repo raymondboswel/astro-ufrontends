@@ -1,48 +1,16 @@
 ---
-import ReactComponent from "../components/ReactComponent.jsx";
-import SolidComponent from "../components/SolidComponent.jsx";
+import Layout from "../layouts/default.astro"
+import MfC from '../components/MfC.jsx'
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{"Astro example"}</title>
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react",
-        "react-dom": "https://esm.sh/react-dom",
-        "solid-js": "https://esm.sh/solid-js"
-      }
-    }
-    </script>
-  </head>
-  <body>
-    <main>
-      <h1>Welcome to Astro</h1>
-      <ReactComponent client:only="react" />
-      <SolidComponent client:only="solid" />
-    </main>
-  </body>
-</html>
+<Layout>
+  <h1>Microfrontends</h1>
+  <section>
+    <a href="/fe-a">Microfrontend A (React)</a>
+    <a href="/fe-b">Microfrontend B (React)</a>
+    <a href="/fe-c">Microfrontend C (Solid)</a>
+   
+    <MfC client:only="solid"/>
 
-<style>
-html {
-  font-family: system-ui, sans-serif;
-  background-color: #f6f6f6;
-}
-
-main {
-  margin: auto;
-  padding: 1.5rem;
-  max-width: 60ch;
-}
-
-h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin: 0;
-}
-</style>
+  </section>
+</Layout>

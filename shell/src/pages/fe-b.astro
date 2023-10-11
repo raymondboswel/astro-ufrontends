@@ -1,15 +1,13 @@
 ---
 import Layout from "../layouts/default.astro"
+import MfB from "../components/MfB.jsx"
+
 ---
 
 <Layout>
-  <h1>Microfrontends Home</h1>
+  <h1>Microfrontend B</h1>
   <section>
-    <h3>Microfrontends: </h3>
-    <div>
-       <a href="/fe-a">MF A (React)</a>
-       <a href="/fe-b">MF B (React)</a>
-       <a href="/fe-c">MF C (Solid)</a>
-    </div>
+    <MfB client:only="react"/>
   </section>
+
 </Layout>

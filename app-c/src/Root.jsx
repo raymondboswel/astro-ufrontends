@@ -5,11 +5,15 @@ import {About } from './About'
 import { Contact} from "./Contact" 
 
 function Root() {
-  return (    <Router>
+  console.log("Rendering Root")
+  return (    <Router base="/fe-c">
+      {/* <A href="/about">About</A> */}
+      {/* <A href="/contact">Contact</A> */}
+
       <Routes>
         <Route path="/" component={App} />
-        <Route path="/about" component={About} /> {/* 👈 Define the about page route */}
-        <Route path="/contact" component={Contact} /> {/* 👈 Define the contact page route */}
+        <Route path="/about" component={About} /> 
+        <Route path="/contact" component={Contact} /> 
       </Routes>
     </Router>
 )
