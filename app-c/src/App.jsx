@@ -9,7 +9,7 @@ function App() {
       <div style={{display: "flex", gap: "16px"}}>
       <A href="/about">About Solid</A>
       <A href="/contact">Contact me</A>
-
+      <A href="/users">Users</A>
 </div>
 
     </section>
