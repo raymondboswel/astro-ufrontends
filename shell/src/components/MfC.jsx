@@ -1,4 +1,4 @@
-import MicroFrontendC from "http://localhost:7300/bundle.js";
+import MicroFrontendC from "http://localhost:8080/bundle-c.js";
 
 function App() {
   return (
