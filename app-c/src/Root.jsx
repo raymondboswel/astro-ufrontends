@@ -10,7 +10,8 @@ import { Users } from "./Users"
 
 function Root() {
   console.log("Rendering Root")
-  return (    <Router base="/fe-c">
+  const baseUrl = import.meta.env.PROD === "/fe-c" ? "/fe-c" : "/"
+  return (    <Router base={baseUrl}>
       <Routes>
         <Route path="/" component={App} />
         <Route path="/about" component={About} /> 
