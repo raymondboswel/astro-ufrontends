@@ -6,7 +6,8 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && cp dist/bundle.js ../shell/dist/bundle-c.js && cp -r dist/assets ../shell/dist && cp ./dist/manifest.json ../shell/dist/manifest-c.json"
   },
   "license": "MIT",
   "devDependencies": {

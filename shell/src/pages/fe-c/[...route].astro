@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/default.astro"
-// import MfC from "../components/MfB.jsx"
+import MfC from "../../components/MfC.jsx"
 import SolidComponent from '../../components/SolidComponent.jsx'
 
 export function getStaticPaths() {
@@ -18,7 +18,7 @@ export function getStaticPaths() {
 <Layout>
   <h1>Microfrontend C</h1>
   <section>
-    <SolidComponent client:only="solid"/>
+    <MfC client:only="solid"/>
   </section>
 
 </Layout>
