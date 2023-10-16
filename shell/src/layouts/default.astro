@@ -1,6 +1,13 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import { navigate } from 'astro:transitions/client';
+
+function handleNavigation() {
+  navigate("/");
+}
+
 ---
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +34,8 @@ import { ViewTransitions } from 'astro:transitions';
       import { defineCustomElements } from '@trimble-oss/modus-web-components/loader';
       defineCustomElements();
     </script>
+
+
   </head>
   <body>
     <main>
@@ -36,8 +45,8 @@ import { ViewTransitions } from 'astro:transitions';
        show-help
        show-main-menu>
        <div slot="main" style="height:300px; display: flex; flex-direction: column">
-         <a href="/fe-a" onclick="window.location.href = '/fe-a';">Microfrontend A (React)</a>
-         <a href="/fe-c" onclick="window.location.href = '/fe-c';">Microfrontend C (Solid)</a>
+         <div id="mfa" class="underline text-cyan-800 cursor-pointer" >Microfrontend A (React)</div>
+         <div id="mfc" class="underline text-cyan-800 cursor-pointer" >Microfrontend C (Solid)</div>
        </div>
       </modus-navbar>
 
@@ -45,6 +54,25 @@ import { ViewTransitions } from 'astro:transitions';
     </main>
   </body>
 </html>
+
+<script>
+import { navigate } from 'astro:transitions/client';
+
+function gotoC() {
+  console.log("Go to C!")
+  navigate("/fe-c");
+}
+
+function gotoA() {
+  console.log("Go to A!")
+  navigate("/fe-a");
+}
+console.log("Adding event listeners to links");
+document.getElementById("mfa").addEventListener('click', () => gotoA());
+document.getElementById("mfc").addEventListener('click', () => gotoC());
+
+</script>
+
 
 <style>
 html {
