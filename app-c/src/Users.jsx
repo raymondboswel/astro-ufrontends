@@ -1,5 +1,8 @@
 import { For } from "solid-js";
 import { useNavigate } from "@solidjs/router"
+import {onMount } from 'solid-js'
+
+import {setCount } from "./Root"
 
 const UserItem = (props) => {
   return <section class="flex justify-between">
@@ -10,6 +13,10 @@ const UserItem = (props) => {
 
 
 export const Users = () => {
+    onMount(() => {
+      setCount(count => count + 1)
+})
+
   const users = [
     {name: "Raymond", email: "raymond@example.com", id: 1}, 
     {name: "Lisa",email: "lisa@example.com", id: 2},

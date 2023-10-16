@@ -1,4 +1,3 @@
-
 import { Router, Routes, Route} from "@solidjs/router"
 import App from './App';
 import {About } from './About'
@@ -7,7 +6,14 @@ import {PageWrapper } from "./PageWrapper"
 import { User } from "./User"
 import { Users } from "./Users"
 import './index.css';
-import { createSignal, createEffect, Show, onMount } from "solid-js";
+import { createSignal, Show, onMount } from "solid-js";
+
+export const [baseUrl , setBaseUrl ]= createSignal();
+export const [count, setCount] = createSignal(0);
+
+export const [cssUrl, setCssUrl] = createSignal();
+export const [cssLoaded, setCssLoaded] = createSignal();
+
 
 function RoutesDefinition(props) {
   return <Router base={props.baseUrl}>
@@ -23,14 +29,10 @@ function RoutesDefinition(props) {
     </Router>
 }
 
-function Root() {
-  console.log("Rendering Root")
+function Root(props) {
   const isProd = import.meta.env.PROD;
   const baseUrl = isProd ? "/fe-c" : "/"
-  console.log("isProd?", import.meta.env.PROD);
-  console.log("baseUrl", baseUrl)
-  const [cssUrl, setCssUrl] = createSignal();
-  const [cssLoaded, setCssLoaded] = createSignal();
+  setBaseUrl(baseUrl);
 
   async function getManifest() {
     if(isProd) {
@@ -44,10 +46,7 @@ function Root() {
     getManifest()
   });
 
-  createEffect(() => console.log("cssLoaded", cssLoaded())) 
-  createEffect(() => console.log("cssUrl", cssUrl())) 
-
-  // When in production mode, the css must be fetched using the hashed file name
+   // When in production mode, the css must be fetched using the hashed file name
   // found in the manifest. This component therefore fetches the file reference,
   // and then when css file is loaded, displays the rest of the application
 
@@ -61,6 +60,11 @@ function Root() {
          <RoutesDefinition baseUrl={baseUrl}/>
       </Show>
     </Show>   
+    <section class="mt-8 ml-8">
+          <div>Global state (counts navigations): {count()}</div>
+     <div class="underline text-cyan-800" onClick={() => props.onNavigate()}>To Parent</div>
+
+</section>
    </>
 )
 }

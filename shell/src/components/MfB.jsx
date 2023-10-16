@@ -1,10 +1,10 @@
 import React from "react";
 import MicroFrontendB from "http://localhost:7200/bundle.js";
 
-const MfA = () => (
+const MfB = () => (
   <>
     <MicroFrontendB />
   </>
 );
 
-export default MfA;
+export default MfB;

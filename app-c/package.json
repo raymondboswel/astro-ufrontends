@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.8.3",
-    "solid-js": "^1.6.10"
+    "solid-js": "^1.8.1"
   }
 }

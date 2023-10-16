@@ -1,9 +1,19 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <ViewTransitions />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{"Astro example"}</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+     href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=fallback"
+     rel="stylesheet" />
     <script type="importmap">
     {
       "imports": {
@@ -13,9 +23,24 @@
       }
     }
     </script>
+    <script>
+      import { defineCustomElements } from '@trimble-oss/modus-web-components/loader';
+      defineCustomElements();
+    </script>
   </head>
   <body>
     <main>
+     <modus-navbar
+       id="working"
+       show-apps-menu
+       show-help
+       show-main-menu>
+       <div slot="main" style="height:300px; display: flex; flex-direction: column">
+         <a href="/fe-a" onclick="window.location.href = '/fe-a';">Microfrontend A (React)</a>
+         <a href="/fe-c" onclick="window.location.href = '/fe-c';">Microfrontend C (Solid)</a>
+       </div>
+      </modus-navbar>
+
       <slot />
     </main>
   </body>
@@ -29,8 +54,12 @@ html {
 
 main {
   margin: auto;
-  padding: 1.5rem;
-  max-width: 60ch;
+  /* padding: 1.5rem; */
+  /* max-width: 60ch; */
+}
+
+body {
+  margin: 0
 }
 
 h1 {

@@ -1,22 +1,16 @@
 ---
 import Layout from "../../layouts/default.astro"
-import MfC from "../../components/MfC.jsx"
+import MfC from "../../components/solid/MfC.jsx"
 import SolidComponent from '../../components/SolidComponent.jsx'
 
 export function getStaticPaths() {
   // we need to define all the possible solid routes so astro knows to redirect here
-  return [{ params: { route: undefined } }
-          ,{ params: { route: "about" }}, 
-          { params: { route: "contact" } }, 
-          { params: { route: "/contact" }}, 
-          {params: { route: "/users"}},
-          {params: { route: "/users/:id"}},
-          {params: { route: "/users/*"}}  ];
+  return [{ params: { route: undefined } },
+ ];
 }
 ---
 
 <Layout>
-  <h1>Microfrontend C</h1>
   <section>
     <MfC client:only="solid"/>
   </section>

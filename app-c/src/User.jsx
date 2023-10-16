@@ -1,7 +1,14 @@
 
   import {  useSearchParams } from "@solidjs/router";
+import {onMount } from 'solid-js'
+import {setCount } from "./Root"
+
 
 export const User = () => {
+    onMount(() => {
+      setCount(count => count + 1)
+})
+
   const [params]= useSearchParams();
   console.log(params)
   return <section class="flex flex-col ">

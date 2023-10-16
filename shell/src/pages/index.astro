@@ -1,16 +1,12 @@
 ---
 import Layout from "../layouts/default.astro"
-import MfC from '../components/MfC.jsx'
 ---
 
 <Layout>
+
   <h1>Microfrontends</h1>
   <section>
     <a href="/fe-a">Microfrontend A (React)</a>
-    <a href="/fe-b">Microfrontend B (React)</a>
     <a href="/fe-c">Microfrontend C (Solid)</a>
-   
-    <MfC client:only="solid"/>
-
   </section>
 </Layout>
